@@ -1,6 +1,10 @@
 const express = require('express');
 const vision = require('@google-cloud/vision');
 const app = express();
+const dotenv = require('dotenv')
+dotenv.config({
+    path:  './config.env'
+})
 
 const mongoose = require("mongoose")
 const cors = require('cors')
@@ -14,7 +18,7 @@ const User = require('./models/user');
 
 const connectDatabase =async  () => {
 
-    await mongoose.connect('mongodb://Joshal_007:Joshal007@ac-8thcfbi-shard-00-00.lxspq41.mongodb.net:27017,ac-8thcfbi-shard-00-01.lxspq41.mongodb.net:27017,ac-8thcfbi-shard-00-02.lxspq41.mongodb.net:27017/?ssl=true&replicaSet=atlas-9a65rb-shard-0&authSource=admin&retryWrites=true&w=majority' ,{useNewUrlParser : true})
+    await mongoose.connect(process.env.MONGO_URI ,{useNewUrlParser : true})
 
     console.log("MongoDB Connection Successfully")
 
