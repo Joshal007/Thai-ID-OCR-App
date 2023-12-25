@@ -1,8 +1,8 @@
 <H1 align ="center" > THAI ID OCR APP  </h1>
 <h5  align ="center"> 
 Fullstack ID Text Detection application made with MongoDB, Express, React & Nodejs (MERN) </h5>
+<h3> [Project Demo Video](https://drive.google.com/file/d/1Rs0-lsfCMLaiq_owI3KVahhrnMTyIvx7/view?usp=drive_link)</h3>
 <br/>
-  * [Project Demo Video](https://drive.google.com/file/d/1Rs0-lsfCMLaiq_owI3KVahhrnMTyIvx7/view?usp=drive_link)
   * [Configuration and Setup](#configuration-and-setup)
   * [Key Features](#key-features)
   * [Technologies used](#technologies-used)
