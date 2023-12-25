@@ -86,7 +86,7 @@ app.post('/getdata',async(req,res)=>{
     })
 })
 
-const CREDENTIALSS = JSON.parse(JSON.stringify({
+const CREDENTIALSS = {
     "type": "service_account",
 "project_id": "eighth-parity-409107",
 "private_key_id": "0fdc851991c3b9b9745a469147f9e3c1cf222cc9",
@@ -98,7 +98,7 @@ const CREDENTIALSS = JSON.parse(JSON.stringify({
 "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
 "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/joshal-joshi%40eighth-parity-409107.iam.gserviceaccount.com",
 "universe_domain": "googleapis.com"
-}));
+};
 
 const CONFIG = {
     credentials:{
