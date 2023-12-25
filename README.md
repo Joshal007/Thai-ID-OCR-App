@@ -1,7 +1,6 @@
 <H1 align ="center" > THAI ID OCR APP  </h1>
 <h5  align ="center"> 
 Fullstack ID Text Detection application made with MongoDB, Express, React & Nodejs (MERN) </h5>
-<h3> [Project Demo Video](https://drive.google.com/file/d/1Rs0-lsfCMLaiq_owI3KVahhrnMTyIvx7/view?usp=drive_link)</h3>
 <br/>
   * [Configuration and Setup](#configuration-and-setup)
   * [Key Features](#key-features)
@@ -10,6 +9,7 @@ Fullstack ID Text Detection application made with MongoDB, Express, React & Node
       - [Backend](#backend)
       - [Database](#database)
 
+<h3> [Project Demo Video](https://shorturl.at/cfzEK)</h3>
 ## Configuration and Setup
 
 In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine.
