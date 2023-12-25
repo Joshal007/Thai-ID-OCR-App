@@ -132,11 +132,21 @@ app.post('/addimagedata',upload.single("image"),async (req,res)=>{
         const idNumberRegex = /\b\d+ \d+ \d+ \d+ \d+\b/g;
         const firstNameRegex = /\bName\s+([\s\S]+?)\n/;
         const lastNameRegex = /\bLast\s+name\s+(\S+)/;
-
+        
         // Extract information using regular expressions
-        const idNumber = joinedText.match(idNumberRegex)[0];
-        const firstName = joinedText.match(firstNameRegex)[1];
-        const lastName = joinedText.match(lastNameRegex)[1];
+        const idNumberMatch = joinedText.match(idNumberRegex);
+        const firstNameMatch = joinedText.match(firstNameRegex);
+        const lastNameMatch = joinedText.match(lastNameRegex);
+
+// Check if matches are found before accessing the results
+    if (idNumberMatch && firstNameMatch && lastNameMatch) {
+        const idNumber = idNumberMatch[0];
+        const firstName = firstNameMatch[1];
+        const lastName = lastNameMatch[1];
+        // Extract information using regular expressions
+        // const idNumber = joinedText.match(idNumberRegex)[0];
+        // const firstName = joinedText.match(firstNameRegex)[1];
+        // const lastName = joinedText.match(lastNameRegex)[1];
         const dateOfBirth = allEnglishDates[0];
         const issueDate = allEnglishDates[1];
         const expiryDate = allEnglishDates[2];
@@ -157,7 +167,7 @@ app.post('/addimagedata',upload.single("image"),async (req,res)=>{
             "date_of_issue": formatDate(issueDate),
             "date_of_expiry": formatDate(expiryDate)
         };
-        
+
         const d = await User.findOne({identificationid:idNumber});
         if(d){
             res.status(400).json({
@@ -180,6 +190,13 @@ app.post('/addimagedata',upload.single("image"),async (req,res)=>{
                 data : data
             })
         }
+    }
+    else{
+        res.status(400).json({
+            success: false,
+            message: "Data extraction failed. Check the image for valid text patterns."
+        });
+    }
     }
     catch(e){
         console.log(`Error : ${e}`);
