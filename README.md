@@ -3,7 +3,6 @@
 Fullstack ID Text Detection application made with MongoDB, Express, React & Nodejs (MERN) </h5>
 <br/>
 
-<video src='https://drive.google.com/file/d/1Rs0-lsfCMLaiq_owI3KVahhrnMTyIvx7/view?usp=drive_link' width=180> </video>
   * [Configuration and Setup](#configuration-and-setup)
   * [Key Features](#key-features)
   * [Technologies used](#technologies-used)
