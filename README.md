@@ -2,8 +2,7 @@
 <h5  align ="center"> 
 Fullstack ID Text Detection application made with MongoDB, Express, React & Nodejs (MERN) </h5>
 <br/>
-<a href="https://drive.google.com/file/d/1Rs0-lsfCMLaiq_owI3KVahhrnMTyIvx7/view?usp=drive_link" target="_blank">Project Demo Video</a>
-<br/>
+
   * [Configuration and Setup](#configuration-and-setup)
   * [Key Features](#key-features)
   * [Technologies used](#technologies-used)
@@ -12,7 +11,7 @@ Fullstack ID Text Detection application made with MongoDB, Express, React & Node
       - [Database](#database)
 
 
-
+<a href="https://drive.google.com/file/d/1Rs0-lsfCMLaiq_owI3KVahhrnMTyIvx7/view?usp=drive_link" target="_blank">Project Demo Video</a>
 ## Configuration and Setup
 
 In order to run this project locally, simply fork and clone the repository or download as zip and unzip on your machine.
