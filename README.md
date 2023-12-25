@@ -30,17 +30,19 @@ $ npm run  start (to start the frontend)
 
 In the second terminal
 
-- cd Backend and Set environment variables in config.env
+- cd Backend and Set environment variables in .env
 - Create your mongoDB connection url, which you'll use as your MONGO_URI
 - Supply the following credentials
 
 ```
-#  ---  Config.env  ---
+#  --- .env  ---
 
 NODE_ENV = development
 PORT =5000
 URI =http://localhost:3000
 MONGO_URI =
+client_email =
+private_key = 
 
 ```
 # --- Terminal ---
