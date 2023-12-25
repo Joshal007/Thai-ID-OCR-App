@@ -1,9 +1,11 @@
 const express = require('express');
-
+const vision = require('@google-cloud/vision');
 const app = express();
 
 const mongoose = require("mongoose")
 const cors = require('cors')
+
+const upload = require('./Upload')
 
 app.use(express.json())
 app.use(cors())
@@ -80,8 +82,30 @@ app.post('/getdata',async(req,res)=>{
     })
 })
 
-app.post('/addimagedata',(req,res)=>{
-    const {image} = req.body;
-    
+
+app.post('/addimagedata',upload.single("image"),async (req,res)=>{
+    console.log(req.savedStoryImage)
+    const client = new vision.ImageAnnotatorClient();
+    const fileName = `/THAI ID OCR APP/Backend/images/${req.savedStoryImage}`;
+    const func = async()=>{
+    try{
+        const [result] = await client.textDetection(fileName);
+        const detections = await result.textAnnotations;
+        console.log('Text:');
+        detections.forEach(text => console.log(text));
+    }
+    catch(e){
+        console.log(`Error : ${e}`);
+        res.status(404).json({
+            success:true,
+            message:"Data Not Added"
+        })
+    }
+    }
+    await func()
+    res.status(201).json({
+        success:true,
+        message:"Image Added"
+    })
 })
 
