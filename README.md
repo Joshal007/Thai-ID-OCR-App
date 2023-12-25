@@ -2,12 +2,6 @@
 <h5  align ="center"> 
 Fullstack ID Text Detection application made with MongoDB, Express, React & Nodejs (MERN) </h5>
 <br/>
-  * [Configuration and Setup](#configuration-and-setup)
-  * [Key Features](#key-features)
-  * [Technologies used](#technologies-used)
-      - [Frontend](#frontend)
-      - [Backend](#backend)
-      - [Database](#database)
 
 <h3> [Project Demo Video](https://shorturl.at/cfzEK)</h3>
 ## Configuration and Setup
