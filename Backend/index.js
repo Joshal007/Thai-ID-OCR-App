@@ -39,17 +39,28 @@ app.get('/',(req, res) => {
 app.post('/add',async(req,res)=>{
     const {id,firstname,lastname,dob,doi,doe} = req.body;
     console.log(req.body)
-    await User.create({
-        identificationid:id,
-        firstname:firstname,
-        lastname:lastname,
-        dob:dob,
-        dateofissue:doi,
-        dateofexpiry:doe
-    })
-    return res.status(201).json({
-        success: true
-    })
+
+    const d = await User.findOne({identificationid:id});
+    if(d){
+        res.status(400).json({
+            success:true,
+            message:"Data Already Present"
+        })
+    }
+    else{
+        await User.create({
+            identificationid:id,
+            firstname:firstname,
+            lastname:lastname,
+            dob:dob,
+            dateofissue:doi,
+            dateofexpiry:doe
+        })
+        return res.status(201).json({
+            success: true
+        })
+    }
+    
 })
 
 app.post('/delete',async(req,res)=>{
@@ -135,7 +146,7 @@ app.post('/addimagedata',upload.single("image"),async (req,res)=>{
             const day = date.getDate().toString().padStart(2, '0');
             const month = (date.getMonth() + 1).toString().padStart(2, '0');
             const year = date.getFullYear();
-            return `${day}/${month}/${year}`;
+            return `${year}-${month}-${day}`;
         }
 
         const data = {
@@ -147,11 +158,28 @@ app.post('/addimagedata',upload.single("image"),async (req,res)=>{
             "date_of_expiry": formatDate(expiryDate)
         };
         
-        res.status(201).json({
-            success:true,
-            message:"Image Added",
-            data : data
-        })
+        const d = await User.findOne({identificationid:idNumber});
+        if(d){
+            res.status(400).json({
+                success:true,
+                message:"Data Already Present"
+            })
+        }
+        else{
+            await User.create({
+                identificationid:idNumber,
+                firstname:firstName,
+                lastname:lastName,
+                dob:Date.parse(formatDate(dateOfBirth)),
+                dateofissue:Date.parse(formatDate(issueDate)),
+                dateofexpiry:Date.parse(formatDate(expiryDate))
+            })
+            res.status(201).json({
+                success:true,
+                message:"Image Data Added",
+                data : data
+            })
+        }
     }
     catch(e){
         console.log(`Error : ${e}`);
