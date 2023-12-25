@@ -1,0 +1,18 @@
+.add{
+    text-align: center;
+    background-color: rgb(214, 232, 227);
+    width: 50%;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.inp{
+    border-radius: 8px;
+    margin: 5px;
+}
+button{
+  padding: 2px 25px;
+  margin: 5px;
+  border-radius: 8px;
+}
